@@ -20,6 +20,8 @@ def getDescriptionTextSpecific(descriptionFilePath):
     findthep=soup.find_all('p')
     print findtheH1
     print findthep
+    result = str(findtheH1).strip('[]')
+    return result
           
 def getHTMLDescriptions():
     resultFile=open("HTMLDescriptionsList.txt","w+")
@@ -45,10 +47,15 @@ def getHTMLDescriptions():
         print eachline
     resultFile.close()
     return modulesWithDescriptions
+
 def pullTextTogether():
     DescriptionFilesList = getHTMLDescriptions()
+    HTMLDescriptionText=open("HTMLDescriptionText.txt", "w+")
     for i in DescriptionFilesList:
-        getDescriptionTextSpecific(i)
+        currentline=getDescriptionTextSpecific(i)
+        print currentline
+        HTMLDescriptionText.write(currentline+'\n')
+    HTMLDescriptionText.close()
 #Use a function that will get the list of modules with description.html files
 #That will then pass each file path as an argument to getDescriptionText
     #to get all the descriptions
