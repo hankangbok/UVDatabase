@@ -1,5 +1,8 @@
 # Uniview Assets Library
-## A database of Uniview Assets.
+## Test Deployment live at: 
+https://kyouyatamax.github.io/UVDatabase/
+
+## Description: A database of Uniview Assets.
 This database will ultimately be based off of a .csv file.   
 The custom_modules.csv file will be converted into a Javascript array of objects, and formatted into a table. By using the [DataTables] (https://datatables.net/) Plugin for JQuery, the resulting table will be searchable.  
 
