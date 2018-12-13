@@ -1,14 +1,15 @@
 # Uniview Assets Library
 ## Test Deployment live at: 
 https://kyouyatamax.github.io/UVDatabase/
+## How to Use:
+- Search for an asset by keyword using the Search bar at the top left
+- Sift manually through the list of assets using the page numbers at the bottom of the page
+- Toggle the number of entries displayed per page.
 
 ## Description: A database of Uniview Assets.
 This database will ultimately be based off of a .csv file.   
 The custom_modules.csv file will be converted into a Javascript array of objects, and formatted into a table. By using the [DataTables] (https://datatables.net/) Plugin for JQuery, the resulting table will be searchable.  
 
-## NOTE:
-Right now, this webpage is just an html page with no backend.
-Eventually, I want to migrate this to webpack and make the functions more modular. Just nicer. For now, I'm just trying to get things to work at least a little bit.    
   
 ## Future Features: 
 (Hoo boy there's a lot):
@@ -20,10 +21,13 @@ Eventually, I want to migrate this to webpack and make the functions more modula
 - Add a <b>Javascript form</b> to the page so that users can enter data for new assets. 
 - Data Entry for the actual csv base file. 
 
+## NOTE:
+Right now, this webpage is just an html page with no backend.
+Eventually, I want to migrate this to webpack and make the functions more modular. Just nicer. For now, I'm just trying to get things to work at least a little bit.    
+
 ## Technologies Used: 
 - [DataTables] (https://datatables.net/) Plugin for JQuery  
 - [JQuery] (Link Needed) 
-- WebPack
 - Javascript
 - HTML
 - CSS
