@@ -36,12 +36,12 @@ ul li {
 	display: inline;
 }
 table.dataTable tbody td {
-    word-break: break-word;
-    vertical-align: top;
+ 	word-break: break-word;
+    	vertical-align: top;
 }
 .text-wrap{
 	white-space:normal;
 }
 .width-200{
-    width:400px;
+    	width:400px;
 }
