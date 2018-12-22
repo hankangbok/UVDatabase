@@ -15,7 +15,7 @@ header {
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
-	text-align: center;
+	text-align:center;
 }
 #example_wrapper.dataTables_wrapper.no-footer {
 	margin-left: 10%;
@@ -34,4 +34,14 @@ header {
 }
 ul li {
 	display: inline;
+}
+table.dataTable tbody td {
+    word-break: break-word;
+    vertical-align: top;
+}
+.text-wrap{
+	white-space:normal;
+}
+.width-200{
+    width:400px;
 }
