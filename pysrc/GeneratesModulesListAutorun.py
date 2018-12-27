@@ -2,24 +2,25 @@ import os
 from os import listdir
 from os.path import isfile, join
 import re
-#from mergingDicts import addtoMaster2
 from collections import defaultdict
 
 #This program looks into the autorun.md file included with Uniview Profiles.
 #Scans over all UV profiles, gets autorun.md file.
 #Isolates module names
-#TODO: Matches the module names to the profile name in a hash?
-#TODO: writes the profile name to the appropriate module in the csv list for dataTables
+#Matches the module names to the profile name in a hash?
+#Writes the profile name to the appropriate module in the csv list for dataTables
+
+profilesPath = '../../Profiles'
 
 #Gets the names of all the profile folders 
 def getFolderNames():
-    directories = os.listdir('Profiles')
+    directories = os.listdir(profilesPath)
     return directories
 def getValidProfileNames():
     directories = getFolderNames()
     validProfileNames = []
     for profile in directories:  
-        subpath = os.path.join(r'Profiles', profile,"Modules")
+        subpath = os.path.join(profilesPath, profile,"Modules")
         if(os.path.exists(subpath)):
             #print os.listdir(subpath)
             validProfileNames.append(profile)
@@ -31,12 +32,12 @@ def getAutorunFiles():
     directories = getValidProfileNames()
     validProfilePaths = []
     for profile in directories:  
-        subpath = os.path.join(r'Profiles', profile,"Modules")
+        subpath = os.path.join(profilesPath, profile,"Modules")
         validProfilePaths.append(os.path.join(subpath,"autorun.mod"))
     return validProfilePaths
 
 def getSingleAutorunFilePath(profilename):
-    subpath = os.path.join(r'Profiles', profilename,"Modules")
+    subpath = os.path.join(profilesPath, profilename,"Modules")
     if(os.path.exists(subpath)):
         
         return os.path.join(subpath,"autorun.mod")
@@ -106,7 +107,7 @@ def master():
         for key,value in currentDict.iteritems():
             FinalDict[key]+=value
         #FinalDict = organizeToDictionary(profile, path)
-    #print FinalDict        
+    print FinalDict        
     return FinalDict
 
 
