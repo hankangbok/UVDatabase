@@ -3,6 +3,7 @@ from os import listdir
 from os.path import isfile, join
 import re
 from collections import defaultdict
+import unittest
 
 #This program looks into the autorun.md file included with Uniview Profiles.
 #Scans over all UV profiles, gets autorun.md file.
@@ -107,10 +108,18 @@ def master():
         for key,value in currentDict.iteritems():
             FinalDict[key]+=value
         #FinalDict = organizeToDictionary(profile, path)
-    print FinalDict        
+    #print FinalDict        
     return FinalDict
 
 
+#Unit tests down here
+class MyTest(unittest.TestCase):
+    def test(self):
+        getsDirectories = type(getFolderNames()) is list
+        self.assertTrue(getsDirectories, True)
+if __name__ == '__main__':
+    unittest.main()
+    
 #readAutorunMod()
 #organizeToDictionary()
 #master()

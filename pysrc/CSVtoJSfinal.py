@@ -12,7 +12,7 @@ def convertCSVtoJSFormat():
         eachline=eachline[:-2]
         #Add in a closing bracket for the dataset
         eachline+="]"
-        print eachline
+        #print eachline
 
 def convertCSVtoJSFormatUsersChoice():
     result=[]
@@ -29,7 +29,7 @@ def convertCSVtoJSFormatUsersChoice():
         eachline=eachline[:-2]
         #Add in a closing bracket for the dataset
         eachline+="]"
-        print eachline
+        #print eachline
 
 def convertCSVtoJSFormattoJSFile():
     result=[]
@@ -72,7 +72,7 @@ def convertCSVtoJSFormattoJSFile():
 			$('div.dataTables_filter input').focus();
 
 		});"""
-        print eachline
+        #print eachline
     finalIndexJS=open("../html/master.js","w+")
     finalIndexJS.write(eachline)
     finalIndexJS.close()

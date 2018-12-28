@@ -2,6 +2,7 @@ import os
 from os import listdir
 from os.path import isfile,join
 import csv
+import unittest
 
 CustomModulesFolderPath = '..\..\Custom Modules'
 
@@ -14,12 +15,16 @@ def getCustomModulesList():
     directories = os.listdir(CustomModulesFolderPath)
     for item in directories:
         newLines= item+",,,[]\n"
-        print newLines
+        #print newLines
         resultFile.write(newLines)
 
     resultFile.close()
+    print "A CSV table with 4 columns has been created.\n"
+    print "You can find it in this directory as - CustomModulesList.csv\n"
 
 #Prints out the JS object, ready to be pasted into the index.html table
+    #Might be able to just delete this
+"""
 def convertCSVtoJSFormat():
     result=[]
     with open("CustomModulesList.csv", "rb") as f:
@@ -34,6 +39,5 @@ def convertCSVtoJSFormat():
         #Add in a closing bracket for the dataset
         eachline+="]"
         print eachline
+"""
 
-getCustomModulesList()
-convertCSVtoJSFormat()
