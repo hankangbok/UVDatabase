@@ -1,7 +1,36 @@
 # Uniview Assets Library
 ## Test Deployment live at: 
 https://kyouyatamax.github.io/UVDatabase/
-## How to Use:
+
+## Releases available at:  
+https://github.com/kyouyatamax/UVDatabase/releases
+
+##Getting Started
+To make your own library of Uniview assets, you will need:  
+- To download the [latest stable release source code](https://github.com/kyouyatamax/UVDatabase/releases)  
+- Save the unzipped folder to your Uniview 2.0 folder as follows:  
+- Your folder path should look something like *username/SCISS/Uniview Theater 2.0/UVDatabase-x.x*  
+As of now, there is an executable (MAIN.exe) that can scan your files for you. However, firewalls don't like it.
+One workaround is to run the Python code in the */scripts* folder. For this, you must have:  
+- Python 2.7  
+- beautifulsoup4 (a Python-based HTML parser)  
+- pandas (Python data analysis package)  
+
+Please see 'dependencies' to install these python packages.  
+- Double click the MAIN.py file to run.
+
+##Dependencies:
+- pip:  
+-- Go to your *C:/Python27/Scripts* folder.  
+-- Open Command prompt in this directory.  
+-- Run `pip --version`  
+-- If pip exists, it's chill. Otherwise, run `python -m pip install -U pip` to install pip.
+- beautifulsoup4:  
+Run `pip install beautifulsoup4`
+- pandas:  
+Run `pip install pandas`
+
+## Website Features:
 - Search for an asset by keyword using the Search bar at the top left
 - Sift manually through the list of assets using the page numbers at the bottom of the page
 - Toggle the number of entries displayed per page.
