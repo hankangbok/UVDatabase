@@ -5,7 +5,7 @@ https://kyouyatamax.github.io/UVDatabase/
 ## Releases available at:  
 https://github.com/kyouyatamax/UVDatabase/releases
 
-##Getting Started
+## Getting Started
 To make your own library of Uniview assets, you will need:  
 - To download the [latest stable release source code](https://github.com/kyouyatamax/UVDatabase/releases)  
 - Save the unzipped folder to your Uniview 2.0 folder as follows:  
@@ -19,7 +19,7 @@ One workaround is to run the Python code in the */scripts* folder. For this, you
 Please see 'dependencies' to install these python packages.  
 - Double click the MAIN.py file to run.
 
-##Dependencies:
+## Dependencies:
 - pip:  
 -- Go to your *C:/Python27/Scripts* folder.  
 -- Open Command prompt in this directory.  
