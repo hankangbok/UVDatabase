@@ -9,10 +9,10 @@ import webbrowser
 import os
 
 def makeTableFromScratch():
-    print ('file:///'+os.getcwd())[:-5]+'html/index.html'
+    print ('file:///'+os.getcwd())[:-5]+'docs/index.html'
     #Output: CSV with BLANK  columns and asset folder populated column
     getCustomModulesList()
-    #if successful:
+     #if successful:
     print "Table with 4 columns has been created"
     print "Scanning Uniview 2.0/Custom_Modules to get the names of the folders"
     print "[asset folders] aka column 1 has been populated\n"
@@ -37,7 +37,7 @@ def makeTableFromScratch():
     convertCSVtoJSFormattoJSFile()
     print "Reading Final.csv and converting to file index.js"
     print "index.js contains the DataTable object displayed by the webpage"
-    print "This file will be located in the ../html directory\n"
+    print "This file will be located in the ../docs directory\n"
 
     #completed update, closing out program
     print "The local version of the website has been updated. \nOnce you exit, the updated webpage will open automatically. "
@@ -45,7 +45,7 @@ def makeTableFromScratch():
 
     #url = 'file:///C:/Users/hkang/SCISS/Uniview Theater 2.0/DatabaseCompiler_HK/html/index.html'
     
-    url = ('file:///'+os.getcwd())[:-5]+'html/index.html'
+    url = ('file:///'+os.getcwd())[:-5]+'docs/index.html'
     print url
     webbrowser.open(url)
 

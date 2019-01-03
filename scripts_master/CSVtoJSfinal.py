@@ -73,6 +73,6 @@ def convertCSVtoJSFormattoJSFile():
 
 		});"""
         #print eachline
-    finalIndexJS=open("../html/master.js","w+")
+    finalIndexJS=open("../docs/master.js","w+")
     finalIndexJS.write(eachline)
     finalIndexJS.close()
