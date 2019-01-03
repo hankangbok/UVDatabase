@@ -11,7 +11,7 @@ import unittest
 #Matches the module names to the profile name in a hash?
 #Writes the profile name to the appropriate module in the csv list for dataTables
 
-profilesPath = '../../Profiles'
+profilesPath = '../../profiles'
 
 #Gets the names of all the profile folders 
 def getFolderNames():

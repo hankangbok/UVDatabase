@@ -6,15 +6,16 @@ from bs4 import BeautifulSoup
 import pandas
 
 
-CustomModulesFolderPath = '..\..\Custom Modules'
+CustomModulesFolderPath = '..\..\custom modules'
 
 #given the filepath of a modules description.html file,
 #return the title of the module as a string
 def getDescriptionTextSpecific(descriptionFilePath):
     soup = BeautifulSoup(open(descriptionFilePath),'html.parser')
-    findtheH1=soup.find('h1').getText()
-    result = str(findtheH1).strip('[]')
-    return result
+    findtheH1=soup.find('h1')
+    if findthH1:
+        result = str(findtheH1.getText()).strip('[]')
+        return result
 
 #Searches /Custom_Modules for modules which have a description.html file
 #Writes a list of such valid modules to 'ModuleswithdescriptionsList.txt"

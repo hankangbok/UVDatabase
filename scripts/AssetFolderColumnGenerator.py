@@ -4,7 +4,7 @@ from os.path import isfile,join
 import csv
 import unittest
 
-CustomModulesFolderPath = '..\..\Custom Modules'
+CustomModulesFolderPath = '..\..\custom modules'
 
 #Generates a CSV table with the module names and empty columns otherwise
 def getCustomModulesList():
