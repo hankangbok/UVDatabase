@@ -1,42 +1,29 @@
 import os
 import unittest
-
-
-#print os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/custom modules'
-#print 'Is /custom modules a valid folder visible to this program?'
-#print (os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/custom modules'))
-
-
-#print os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/Custom Modules'
-#print 'Is /Custom Modules a valid folder visible to this program?'
-#print (os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/Custom Modules'))
-
-
-#print os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/profiles'
-#print 'Is /profiles a valid folder visible to this program?'
-#print (os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/profiles'))
-
-
-
     
 class checkForRequiredFolders(unittest.TestCase):
     def test_Custom_Modules(self):
-        customModulesExists = os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/Custom Modules')
+        customModulesExists = os.path.isdir(os.path.join('../../','Custom Modules'))
         print customModulesExists
         self.assertTrue(customModulesExists)
     def test_custommodules(self):
-        customModulesExists = os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/custom modules')
+        customModulesExists = os.path.isdir(os.path.join('../../','custom modules'))
         print customModulesExists
         self.assertTrue(customModulesExists)
   
     def test_profiles(self):
-        profilesExists = os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/profiles')
+        
+        profilesExists = os.path.isdir(os.path.join('../../','profiles'))
         print profilesExists
         self.assertTrue(profilesExists)
     def test_for_Profiles(self):
-        ProfilesExists = os.path.isdir(os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))+'/Profiles')
+        
+        ProfilesExists = os.path.isdir(os.path.join('../../','Profiles'))
         print ProfilesExists
         self.assertTrue(ProfilesExists)
 
-if __name__ == '__main__':
-        unittest.main()
+#if __name__ == '__main__':
+ #       unittest.main()
+suite = unittest.TestLoader().loadTestsFromTestCase(checkForRequiredFolders)
+unittest.TextTestRunner(verbosity=2).run(suite)
+#Note, paths don't have to be case sensitive for 'isdir' apparently 
