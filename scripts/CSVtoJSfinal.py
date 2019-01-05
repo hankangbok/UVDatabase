@@ -4,7 +4,7 @@ def convertCSVtoJSFormat():
     with open("Final.csv", "rb") as f:
         eachline='var dataSet = [';
         reader=csv.reader(f, delimiter=",")
-        for i, line in enumerate(reader):
+        for i, line in enumerate(reader,1):
             eachline+=str(line)+",\n"
             #print '{},'.format(line)
             #print eachline
@@ -21,7 +21,7 @@ def convertCSVtoJSFormatUsersChoice():
     with open(chosenCSV, "rb") as f:
         eachline='var dataSet = [';
         reader=csv.reader(f, delimiter=",")
-        for i, line in enumerate(reader):
+        for i, line in enumerate(reader,1):
             eachline+=str(line)+",\n"
             #print '{},'.format(line)
             #print eachline
@@ -36,7 +36,7 @@ def convertCSVtoJSFormattoJSFile():
     with open("Final.csv", "rb") as f:
         eachline='var dataSet = [';
         reader=csv.reader(f, delimiter=",")
-        for i, line in enumerate(reader):
+        for i, line in enumerate(reader,1):
             eachline+=str(line)+",\n"
             #print '{},'.format(line)
             #print eachline
