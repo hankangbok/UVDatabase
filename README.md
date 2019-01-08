@@ -1,9 +1,9 @@
 # Uniview Assets Library
-## Test Deployment live at: 
-https://kyouyatamax.github.io/UVDatabase/
+## Deployed At: 
+https://hankangbok.github.io/UVDatabase/
 
 ## Releases available at:  
-https://github.com/kyouyatamax/UVDatabase/releases
+https://github.com/hankangbok/UVDatabase/releases
 
 ## Getting Started
 To make your own library of Uniview assets, you will need:  
