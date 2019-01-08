@@ -1,4 +1,6 @@
-# Uniview Assets Library
+# Uniview Assets Library  
+Scrapes a local installation of Uniview 2.0 Software by SCISS with to create a searchable HTML webpage. Said webpage contains the users Custom module assets, what profiles the assets are used for, and more.   
+The resulting HTML+CSS files can be hosted online so that the database is available on the web, or internally hosted at your institution.    
 ## Deployed At: 
 https://hankangbok.github.io/UVDatabase/
 
