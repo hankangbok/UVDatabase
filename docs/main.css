@@ -3,6 +3,7 @@ body, html{
 	padding:0;
 	font-family: Helvetica, Arial, Sans-Serif;
 }
+/* Header */
 header {
 	padding: 1%;
 	margin-bottom:1%;
@@ -17,6 +18,7 @@ header {
 	justify-content:center;
 	text-align:center;
 }
+/* DataTables Formatating */
 #example_wrapper.dataTables_wrapper.no-footer {
 	padding: 20px;
 	margin-left: 10%;
@@ -29,20 +31,6 @@ header {
 	width:100% !important;
 	
 }
-
-.info-bar {
-	margin-top: 1%;
-	margin-bottom: 1%;
-	padding: 20px;
-	background-color: rgba(233, 109, 31,0.5 );
-}
-ul li {
-	display: inline;
-}
-table.dataTable tbody td {
-    word-break: break-word;
-    vertical-align: top;
-}
 .text-wrap{
 	white-space:normal;
 }
@@ -54,6 +42,23 @@ input{
 	margin-bottom: 10px;
 	height: 30px;
 	font-size: 24px;	
+}
+
+/* Footer */
+.info-bar {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 20px;
+	background-color: rgba(230, 89, 1, 0.219);
+	font-size: 20px;
+}
+ul li {
+	display: inline;
+	padding: 10px;
+}
+table.dataTable tbody td {
+    word-break: break-word;
+    vertical-align: top;
 }
 
 
