@@ -1,3 +1,4 @@
+
 import os
 from os import listdir
 from os.path import isfile,join
@@ -5,6 +6,7 @@ import csv
 import unittest
 from bs4 import BeautifulSoup
 import re
+from collections import defaultdict
 
 CustomModulesFolderPath = '..\..\custom modules'
 
@@ -70,23 +72,58 @@ def writeModuleFoldersToDict(CMFolderPaths):
                 modulesToGetName.append(module)
         print modulesToGetName, 'get the names for these modules, please'
 
+
+
 #I don't have the permissions to write/open files in this directory for some reason???
         #modulesToGetName=[getNamefromDescription(folderpath,item) for item in modulesToGetName]
         #print modulesToGetName, "These are the names from the description files"
     print masterDict, len(masterDict)
     return masterDict
+
+def getProfileName(autorunFilePath):
+    
+    theshortenedName = re.findall('(.*?\\\\)',autorunFilePath)
+    return theshortenedName[-2][:-1] 
+
+
     #write each item in master dict as a line to the  csv file
     #return the final dictionary (Now you can start adding profiles in getProfiles()
 def readAutorunMod(autorunPathList, masterDict):
     print autorunPathList, masterDict
+    masterDictCopy = masterDict
+    #iterates over all the autorun files we have paths for
+    #This should get the modules called by that profile
+    #zip them to a dict with names and profile
+    #we have the masterDict
+    #so given the names from the for loop below, shoudl append the profile name to all the module keys
     for autorunFile in autorunPathList:
+        #get the profile name from the path by going two levels up.
+        profilename = getProfileName(autorunFile)
         currentFile = open(autorunFile,"r")
         FiletoText = currentFile.read()
         modules = re.findall('(?=.*load)[^{]+{[^}]+}',FiletoText)[0]
         moduleLines = modules.split("\n")
         unwantedchars = {'load','{','}'}
+        #Take off the leading whitespace
         moduleLines = [item[4:] for item in moduleLines if item not in unwantedchars]
-    print moduleLines
+        strippedModuleNames = []
+        for x in moduleLines:
+            theshortenedName = re.findall('(.*\/)',x)
+            if theshortenedName:
+                strippedModuleNames.append((theshortenedName[0])[:-1])
+        strippedModuleNames = [item[1:] if item[0]=="*" else item for item in strippedModuleNames]
+        print strippedModuleNames
+
+        
+#Combine [strippedModuleNames] and the [profile name] into a {dict} that can be matched to the {master dict} 
+        for x in moduleLines:
+            masterDictCopy.setdefault(x, []).append(profilename)
+                
+
+    for i in masterDict:
+        print i, '\n'
+
+    #print moduleLines
     #somefilepath=''
     #currentFile = open(somefilepath,"r")
    
