@@ -12,15 +12,26 @@ class checkForRequiredFolders(unittest.TestCase):
         self.assertTrue(customModulesExists)
   
     def test_profiles(self):
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 7e83e0eac98644225d4e6fccd6bc18133a48ad0c
         profilesExists = os.path.isdir(os.path.join('../../','profiles'))
         print profilesExists
         self.assertTrue(profilesExists)
     def test_for_Profiles(self):
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 7e83e0eac98644225d4e6fccd6bc18133a48ad0c
         ProfilesExists = os.path.isdir(os.path.join('../../','Profiles'))
         print ProfilesExists
         self.assertTrue(ProfilesExists)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e83e0eac98644225d4e6fccd6bc18133a48ad0c
 #if __name__ == '__main__':
  #       unittest.main()
 suite = unittest.TestLoader().loadTestsFromTestCase(checkForRequiredFolders)

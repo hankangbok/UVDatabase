@@ -1,11 +1,13 @@
-# Uniview Assets Library
-## Test Deployment live at: 
-https://kyouyatamax.github.io/UVDatabase/
+# Uniview Assets Library  
+Scrapes a local installation of Uniview 2.0 Software by SCISS with to create a searchable HTML webpage. Said webpage contains the users Custom module assets, what profiles the assets are used for, and more.   
+The resulting HTML+CSS files can be hosted online so that the database is available on the web, or internally hosted at your institution.    
+## Deployed At: 
+https://hankangbok.github.io/UVDatabase/
 
 ## Releases available at:  
-https://github.com/kyouyatamax/UVDatabase/releases
+https://github.com/hankangbok/UVDatabase/releases
 
-##Getting Started
+## Getting Started
 To make your own library of Uniview assets, you will need:  
 - To download the [latest stable release source code](https://github.com/kyouyatamax/UVDatabase/releases)  
 - Save the unzipped folder to your Uniview 2.0 folder as follows:  
@@ -19,7 +21,7 @@ One workaround is to run the Python code in the */scripts* folder. For this, you
 Please see 'dependencies' to install these python packages.  
 - Double click the MAIN.py file to run.
 
-##Dependencies:
+## Dependencies:
 - pip:  
 -- Go to your *C:/Python27/Scripts* folder.  
 -- Open Command prompt in this directory.  
