@@ -120,9 +120,9 @@ def readAutorunMod(autorunPathList, masterDict):
             masterDictCopy.setdefault(x, []).append(profilename)
                 
 
-    for i in masterDictCopy:
-        print i, masterDictCopy[i],'\n'
-    #return masterDictCopy
+   # for i in masterDictCopy:
+        #print i, masterDictCopy[i],'\n'
+    return masterDictCopy
 
 
 
@@ -146,9 +146,6 @@ def writeProfileFoldersToDict(profileFolderPaths):
             #modulesSubpathUpper = os.path.join(profileFolder,givenDirectory,"Modules\\autorun.mod")
             if os.path.exists(modulesSubpath):
                 descriptionProfiles.append(modulesSubpath)
-            #if os.path.exists(modulesSubpathUpper):
-            #    descriptionProfiles.append(modulesSubpathUpper)
-    print descriptionProfiles
     return descriptionProfiles
 """
 #Walk through bcb/Uniview and
@@ -163,7 +160,7 @@ def findModuleFolders() :
     #directories = filter(os.path.isdir, os.listdir('.'))
     print "scanning for custom module and profiles folders now"
     allSubdirectories = os.walk(".", topdown=True)
-    print type(allSubdirectories)
+    #print type(allSubdirectories)
     customModuleFolderPaths=[]
     profileFolderPaths=[]
     count=0
@@ -174,9 +171,9 @@ def findModuleFolders() :
                 print root, name
                 count+=1
 #Only testing over 5 directories for now. bcb total scan takes too long
-            if count==3:
+            if count==5:
                 break
-        if count==3:
+        if count==5:
             print "returned a list of  5 folders named 'custom modules'"
             #return customModuleFolderPaths
             break
@@ -188,15 +185,17 @@ def findModuleFolders() :
             if name.lower()=='profiles':
                 profileFolderPaths.append(os.path.join(root,name))
                 count2+=1
-            if count2==3:
+            if count2==5:
                 break
-        if count2==3:
+        if count2==5:
             break
     print profileFolderPaths
 #This gives us a list of folders that have an autorun.mod file
     foldersWithAutorun = writeProfileFoldersToDict(profileFolderPaths)
 #Send [] and master {} to readAutorunMod([],{}) to get back a {} with profiles
-    readAutorunMod(foldersWithAutorun, masterDict)
+    FinalDictionary = readAutorunMod(foldersWithAutorun, masterDict)
+    print FinalDictionary
+    return FinalDictionary
     #a list of all folders with custom modules
     #print customModuleFolderPaths
     #a list of all folders name 'profiles'
@@ -230,7 +229,7 @@ def findModuleFolders() :
 #Prints out the JS object, ready to be pasted into the index.html table
     #Might be able to just delete this
 
-def dictToJS
+
 """
 def convertCSVtoJSFormat():
     result=[]
@@ -247,5 +246,6 @@ def convertCSVtoJSFormat():
         eachline+="]"
         print eachline
 """
-findModuleFolders()
+#findModuleFolders()
+
 
