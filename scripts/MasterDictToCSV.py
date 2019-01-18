@@ -73,5 +73,5 @@ def convertCSVtoJSFormat(dictionary):
 		});"""
    print finalText
 
-#createCSVLines(dictionary)
+createCSVLines(dictionary)
 convertCSVtoJSFormat(dictionary)

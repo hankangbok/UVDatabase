@@ -156,6 +156,7 @@ def writeProfileFoldersToDict(profileFolderPaths):
 def findModuleFolders() :
     #NOTE: Change this to UniviewFolderPath='../../' for realimplementation
     UniviewFolderPath = '../../'
+    HomePath = 'UVDatabase/scripts/'
     os.chdir(UniviewFolderPath)
     #directories = filter(os.path.isdir, os.listdir('.'))
     print "scanning for custom module and profiles folders now"
@@ -195,6 +196,7 @@ def findModuleFolders() :
 #Send [] and master {} to readAutorunMod([],{}) to get back a {} with profiles
     FinalDictionary = readAutorunMod(foldersWithAutorun, masterDict)
     print FinalDictionary
+    os.chdir(HomePath)
     return FinalDictionary
     #a list of all folders with custom modules
     #print customModuleFolderPaths
