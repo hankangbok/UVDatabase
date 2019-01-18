@@ -39,8 +39,8 @@ def convertCSVtoJSFormat(dictionary):
    finalText=''
    finalText+="var dataSet = ["
    for item in dictionary:
-       currentLine = str(item)+",,,"+str(dictionary[item])+"\n"
-       finalText+="["+currentLine+"],\n"
+       currentLine = "["+str(item)+",,,"+str(dictionary[item])+"],\n"
+       finalText+=currentLine
    finalText=finalText[:-2]
    finalText+="];\n"
    finalText+="""$(document).ready(function() {
