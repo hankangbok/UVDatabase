@@ -62,7 +62,7 @@ def writeModuleFoldersToDict(CMFolderPaths):
         modulesWithDescriptions = [module for module in modulePaths if hasDescription(folderpath, module)]
         print modulesWithDescriptions
 #Upate the master dictionary with the folder name
-        {masterDict.update({moduleName:''}) for moduleName in modulePaths}
+        {masterDict.update({moduleName:[]}) for moduleName in modulePaths}
         #print folderpath, masterDict, '\n\n', len(masterDict)
 #check if the asset folder name already in masterDict
 #if its not, THEN check for a description.html
@@ -116,13 +116,18 @@ def readAutorunMod(autorunPathList, masterDict):
 
         
 #Combine [strippedModuleNames] and the [profile name] into a {dict} that can be matched to the {master dict} 
-        for x in moduleLines:
+        for x in strippedModuleNames:
             masterDictCopy.setdefault(x, []).append(profilename)
                 
 
-    for i in masterDict:
-        print i, '\n'
+    for i in masterDictCopy:
+        print i, masterDictCopy[i],'\n'
+    #return masterDictCopy
 
+
+
+
+        
     #print moduleLines
     #somefilepath=''
     #currentFile = open(somefilepath,"r")
@@ -205,7 +210,6 @@ def findModuleFolders() :
 
     #Check for modules with description.html
     #Strip the module name if available, add to csv column (matching by folder name as key)
-findModuleFolders()
     
 
 #Should get the profiles where modules were used.
@@ -225,6 +229,8 @@ findModuleFolders()
     
 #Prints out the JS object, ready to be pasted into the index.html table
     #Might be able to just delete this
+
+def dictToJS
 """
 def convertCSVtoJSFormat():
     result=[]
@@ -241,4 +247,5 @@ def convertCSVtoJSFormat():
         eachline+="]"
         print eachline
 """
+findModuleFolders()
 
