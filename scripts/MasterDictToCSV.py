@@ -37,9 +37,9 @@ def createCSVLines(dictionary):
     return finalText
 def convertCSVtoJSFormat(dictionary):
    finalText=''
-   finalText+="var dataSet = ["
+   finalText+="var dataSet = [['asset folder','module name','source','profiles'],\n"
    for item in dictionary:
-       currentLine = "["+str(item)+",,,"+str(dictionary[item])+"],\n"
+       currentLine = "['"+str(item)+"'"+',"","","'+str(dictionary[item])+'"],\n'
        finalText+=currentLine
    finalText=finalText[:-2]
    finalText+="];\n"
