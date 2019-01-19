@@ -29,6 +29,7 @@ def saveDictToCSV():
             originalCSV.loc[originalCSV.shape[0]+1]=dictforDF        
         else:
             currentIndex = AssetFolder.index[AssetFolder==key][0]
+            
             originalCSV['profiles'][currentIndex]=value
     print "The CSV has been updated - check Final.csv in this directory"
     print "The profile column should now contain all profiles for which a given module has been used"
