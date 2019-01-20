@@ -1,4 +1,3 @@
-
 import os
 from os import listdir
 from os.path import isfile,join
@@ -11,25 +10,11 @@ from collections import defaultdict
 CustomModulesFolderPath = '..\..\custom modules'
 
 #Generates a CSV table with the module names and empty columns otherwise
-"""
-def getCustomModulesList():
-    resultFile=open("CustomModulesList.csv","w+")
-    #Put the headers in this write statement.
-    #Right now the header entry will be dumb, only as user inputs
-    resultFile.write("asset folder,module name,source,profiles\n")
-    directories = os.listdir(CustomModulesFolderPath)
-    for item in directories:
-        newLines= item+",,,[]\n"
-        #print newLines
-        resultFile.write(newLines)
 
-    resultFile.close()
-    print "A CSV table with 4 columns has been created.\n"
-    print "You can find it in this directory as - CustomModulesList.csv\n"
-"""
 def notEmpty(aPath):
     return len(os.listdir(aPath))>0
 
+# Checks if module includes a description.html file
 def hasDescription(folderpath,module):
     modulePath = os.path.join(folderpath,module)
 #Check that this module has a description .html in it subdirectories
@@ -72,11 +57,6 @@ def writeModuleFoldersToDict(CMFolderPaths):
                 modulesToGetName.append(module)
         print modulesToGetName, 'get the names for these modules, please'
 
-
-
-#I don't have the permissions to write/open files in this directory for some reason???
-        #modulesToGetName=[getNamefromDescription(folderpath,item) for item in modulesToGetName]
-        #print modulesToGetName, "These are the names from the description files"
     print masterDict, len(masterDict)
     return masterDict
 
@@ -172,10 +152,10 @@ def findModuleFolders() :
                 customModuleFolderPaths.append(os.path.join(root,name))
                 print root, name
                 count+=1
-#Only testing over 5 directories for now. bcb total scan takes too long
-            if count==5:
+#Only testing over limited directories for now. bcb total scan takes too long
+            if count==10:
                 break
-        if count==5:
+        if count==10:
             print "returned a list of  5 folders named 'custom modules'"
             #return customModuleFolderPaths
             break
@@ -187,9 +167,9 @@ def findModuleFolders() :
             if name.lower()=='profiles':
                 profileFolderPaths.append(os.path.join(root,name))
                 count2+=1
-            if count2==5:
+            if count2==10:
                 break
-        if count2==5:
+        if count2==10:
             break
     print profileFolderPaths
 #This gives us a list of folders that have an autorun.mod file

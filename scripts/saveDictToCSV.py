@@ -18,7 +18,7 @@ def saveDictToCSV():
     Profiles = originalCSV['profiles']
     #get the dictionary of module:[profiles] from the GeneratesModulesListAutorun python scan
     ProfilesDict = master()
-
+    print ProfilesDict
 
     for key,value in ProfilesDict.iteritems():
         doeshave = AssetFolder[AssetFolder==key].empty
@@ -26,10 +26,11 @@ def saveDictToCSV():
             dictforDF = dict(zip(allcolumnnames, blankLine))        
             dictforDF['asset folder']=key
             dictforDF['profiles']=value
+            #print value
             originalCSV.loc[originalCSV.shape[0]+1]=dictforDF        
         else:
             currentIndex = AssetFolder.index[AssetFolder==key][0]
-            
+            print key, currentIndex
             originalCSV['profiles'][currentIndex]=value
     print "The CSV has been updated - check Final.csv in this directory"
     print "The profile column should now contain all profiles for which a given module has been used"
@@ -38,3 +39,4 @@ def saveDictToCSV():
     #print "\n\n\n\n\n"
     #convertCSVtoJSFormat()
     #convert to JS using the CSVtoJS Python script
+saveDictToCSV()

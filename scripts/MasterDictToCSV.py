@@ -25,7 +25,7 @@ def createCSVFile(dictionary):
 
 #future columns will have to take the [asset folder] column and convert that to a dict key list. 
 
-dictionary = findModuleFolders()
+
 
 #make a blank csv with
 #column headers
@@ -38,10 +38,9 @@ def createCSV(dictionary):
     #add in the module names with the module-profiles dictionary
     moduleNames = list(dictionary.keys())
     for name in moduleNames:
-        resultCSV.write(name+str(',')*(len(headers.split(','))-1)+'\n')
+        resultCSV.write(name+str(',')*(len(headers.split(','))-2)+'[],\n')
     resultCSV.close()
 
-#createCSV(dictionary)                                    
 
 #Generate dictionary for:
 #Profiles DONE
@@ -60,26 +59,33 @@ def addColumnDictToCSV(dictionary, columnName):
     blankLine = [""]*len(allcolumnnames)
     moduleNames = originalCSV['module folder name']
     newColumn = originalCSV[columnName]
+    
+    newLine = dict(zip(allcolumnnames, blankLine))
+    print newLine, "this is what a blank line should be like"
     if columnName in originalCSV:
         for key, value in dictionary.iteritems():
+            print key
             moduleExistsInCSV = moduleNames[moduleNames==key].empty
-            if moduleExistsInCSV:
+            #confusing syntax, but if module does NOT exist in csv, adds it to the csv as a new line
+            if moduleExistsInCSV==True:
                 newLine = dict(zip(allcolumnnames, blankLine))
+                #print newLine
                 newLine['module folder name'] = key
                 newLine[columnName] = value
                 originalCSV.loc[originalCSV.shape[0]+1]=newLine        
+            #if module already exists in csv, append the profile name to the profile column 
             else:
                 currentIndex = moduleNames.index[moduleNames==key][0]
-                print currentIndex
                 originalCSV[columnName][currentIndex]=value
-    originalCSV.to_csv('addedcolumn.csv',index=False)
-addColumnDictToCSV(dictionary, 'profiles')
+    originalCSV.to_csv('initialize.csv',index=False)
+
+
 
 #convertCSVtoJSFormattoJSFile()
 #Take the final csv and convert to a js file ready to use
-def convertCSVtoJSFormat():
+def convertCSVtoJSFile():
     result=[]
-    with open("addedcolumn.csv", "rb") as f:
+    with open("initialize.csv", "rb") as f:
         eachline='var dataSet = [';
         reader=csv.reader(f, delimiter=",")
         for i, line in enumerate(reader,1):
@@ -119,11 +125,13 @@ def convertCSVtoJSFormat():
 
 		});"""
         #print eachline
-    finalIndexJS=open("../docs/master.js","w+")
+    finalIndexJS=open("../docs/masterTest.js","w+")
     finalIndexJS.write(eachline)
     finalIndexJS.close()
 
-
+"""
+Might be able to delete this
+"""
 def createCSVLines(dictionary):
     finalText = "asset folder,module name,source,profiles\n"
     for item in dictionary:
@@ -131,6 +139,7 @@ def createCSVLines(dictionary):
         finalText+=currentLine
     print finalText
     return finalText
+
 def convertCSVtoJSFormat(dictionary):
    finalText=''
    finalText+="var dataSet = [['asset folder','module name','source','profiles'],\n"
@@ -169,5 +178,12 @@ def convertCSVtoJSFormat(dictionary):
 		});"""
    print finalText
 
-#createCSVLines(dictionary)
+
+dictionary = findModuleFolders()
+createCSV(dictionary)                                    
+
+addColumnDictToCSV(dictionary, 'profiles')
+convertCSVtoJSFile()
 #convertCSVtoJSFormat(dictionary)
+#createCSVLines(dictionary)
+
