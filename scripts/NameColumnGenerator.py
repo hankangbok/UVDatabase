@@ -13,11 +13,8 @@ CustomModulesFolderPath = '..\..\custom modules'
 def getDescriptionTextSpecific(descriptionFilePath):
     soup = BeautifulSoup(open(descriptionFilePath),'html.parser')
     findtheH1=soup.find('h1')
-<<<<<<< HEAD
+
     if findtheH1:
-=======
-    if findthH1:
->>>>>>> 7e83e0eac98644225d4e6fccd6bc18133a48ad0c
         result = str(findtheH1.getText()).strip('[]')
         return result
 

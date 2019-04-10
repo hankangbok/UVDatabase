@@ -38,6 +38,7 @@ def writeModuleFoldersToDict(CMFolderPaths):
     masterDict = {}
 #For each folder path    
 #Check that the folder is not empty, contains dirs
+    print "writing Modules to Dictionary"
     CMFolderPaths = filter(notEmpty,CMFolderPaths)
 #For remaining 'custom modules' folders, get the folder names inside them (module titles)
     for folderpath in CMFolderPaths:
@@ -104,15 +105,12 @@ def readAutorunMod(autorunPathList, masterDict):
         #print i, masterDictCopy[i],'\n'
     return masterDictCopy
 
-
-
-
-        
     #print moduleLines
     #somefilepath=''
     #currentFile = open(somefilepath,"r")
    
 def writeProfileFoldersToDict(profileFolderPaths):
+    print "writing profile names to a dictionary"
     descriptionProfiles=[]
     for profileFolder in profileFolderPaths:
         directories = os.listdir(profileFolder)
@@ -153,9 +151,9 @@ def findModuleFolders() :
                 print root, name
                 count+=1
 #Only testing over limited directories for now. bcb total scan takes too long
-            if count==10:
+            if count==5:
                 break
-        if count==10:
+        if count==5:
             print "returned a list of  5 folders named 'custom modules'"
             #return customModuleFolderPaths
             break
@@ -166,6 +164,7 @@ def findModuleFolders() :
         for name in directories:
             if name.lower()=='profiles':
                 profileFolderPaths.append(os.path.join(root,name))
+                print name
                 count2+=1
             if count2==10:
                 break

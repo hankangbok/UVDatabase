@@ -31,7 +31,7 @@ def createCSVFile(dictionary):
 #column headers
 #module names only
 def createCSV(dictionary):
-    
+    print "creating csv"
     resultCSV = open("initialize.csv","w+")
     headers = "module folder name,modulename,source,profiles,blank"+"\n"
     resultCSV.write(headers)

@@ -39,4 +39,4 @@ def saveDictToCSV():
     #print "\n\n\n\n\n"
     #convertCSVtoJSFormat()
     #convert to JS using the CSVtoJS Python script
-saveDictToCSV()
+#saveDictToCSV()

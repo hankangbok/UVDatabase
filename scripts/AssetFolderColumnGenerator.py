@@ -57,6 +57,7 @@ def findModuleFolders() :
     print type(allSubdirectories)
     customModuleFolderPaths=[]
     profileFolderPaths=[]
+    finalcount = 100
     count=0
     for root, directories, files in allSubdirectories:
         for name in directories:
@@ -64,9 +65,9 @@ def findModuleFolders() :
                 customModuleFolderPaths.append(os.path.join(root,name))
                 print root, name
                 count+=1
-            if count==5:
+            if count==finalcount:
                 break
-        if count==5:
+        if count==finalcount:
             print "returned a list of  5 folders named 'custom modules'"
             #return customModuleFolderPaths
             break
@@ -101,7 +102,7 @@ def findModuleFolders() :
 
     #Check for modules with description.html
     #Strip the module name if available, add to csv column (matching by folder name as key)
-findModuleFolders()
+#findModuleFolders()
     
 
 #Should get the profiles where modules were used.
